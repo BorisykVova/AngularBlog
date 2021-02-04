@@ -7,9 +7,7 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 import { CreatePageComponent } from './create-page/create-page.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AuthService} from './shared/services/auth.service';
 import {AuthGuard} from './shared/services/auth.guard';
-import {QuillModule} from 'ngx-quill';
 import {SharedModule} from '../shared/shared.module';
 
 const routes: Routes = [
@@ -45,7 +43,6 @@ const routes: Routes = [
         EditPageComponent,
     ],
     providers: [
-        AuthService,
         AuthGuard,
     ],
 })
