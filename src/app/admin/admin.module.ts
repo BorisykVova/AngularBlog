@@ -10,6 +10,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthGuard} from './shared/services/auth.guard';
 import {SharedModule} from '../shared/shared.module';
 import { SearchPipe } from './shared/search.pipe';
+import { AlertComponent } from './shared/components/alert/alert.component';
+import {AlertService} from './shared/services/alert.service';
 
 const routes: Routes = [
     {
@@ -43,9 +45,11 @@ const routes: Routes = [
         CreatePageComponent,
         EditPageComponent,
         SearchPipe,
+        AlertComponent,
     ],
     providers: [
         AuthGuard,
+        AlertService,
     ],
 })
 export class AdminModule {
