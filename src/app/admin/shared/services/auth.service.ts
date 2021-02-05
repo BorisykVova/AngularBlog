@@ -31,13 +31,13 @@ export class AuthService {
             `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`,
             user,
         ).pipe(
-            tap(this.setToken),
+            tap(AuthService.setToken),
             catchError(this.handleError.bind(this))
         )
     }
 
     logout() {
-        this.setToken(null)
+        AuthService.setToken(null)
     }
 
     isAuthenticated(): boolean {
@@ -63,7 +63,7 @@ export class AuthService {
         return throwError(error)
     }
 
-    private setToken(response: FbAuthResponse | null) {
+    private static setToken(response: FbAuthResponse | null) {
 
         if (response) {
             const expDate = new Date(new Date().getTime() + +response.expiresIn * 1000)
